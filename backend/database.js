@@ -1,5 +1,5 @@
 // Simple in-memory mock database for auth demo
-const users = [
+let users = [
   {
     id: 1,
     username: "admin",

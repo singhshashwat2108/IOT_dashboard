@@ -1,5 +1,6 @@
 import Login from "./pages/Login"
 import ForgotPassword from "./pages/ForgotPassword"
+import SignUp from "./pages/SignUp"
 import Dashboard from "./pages/Dashboard"
 import Navigation from "./pages/Navigation"
 import { BrowserRouter,Routes,Route } from "react-router-dom"
@@ -13,6 +14,7 @@ return(
 
 <Routes>
 <Route path="/" element={<Login/>}/>
+<Route path="/signup" element={<SignUp/>}/>
 <Route path="/forgot-password" element={<ForgotPassword/>}/>
 <Route path="/dashboard" element={<Dashboard/>}/>
 <Route path="/navigation" element={<Navigation/>}/>

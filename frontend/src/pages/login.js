@@ -30,6 +30,7 @@ function Login() {
       if (response.ok) {
         localStorage.setItem("user", username);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("fullName", data.user.fullName || username);
         navigate("/dashboard");
       } else {
         setError(data.message || "Login failed");
@@ -99,7 +100,12 @@ function Login() {
               </form>
 
               <div className="auth-footer">
-                <p className="auth-footer-text">Secure login powered by RoboDeliver AI</p>
+                <p className="auth-footer-text">
+                  Don't have an account?{" "}
+                  <Link to="/signup" className="auth-link" style={{ fontSize: "0.9rem" }}>
+                    Sign Up
+                  </Link>
+                </p>
               </div>
             </div>
           </div>

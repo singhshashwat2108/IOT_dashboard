@@ -72,8 +72,53 @@ const forgotPassword = (req, res) => {
   res.status(200).json({ message: "Password reset link sent to registered email." });
 };
 
+// Signup controller
+const signup = (req, res) => {
+  const { username, password, fullName, email, address } = req.body;
+
+  if (!username || !password || !fullName || !email || !address) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
+
+  // Check for duplicate username or email
+  const existingUser = users.find(
+    (u) => u.username === username || u.email === email
+  );
+  if (existingUser) {
+    return res.status(409).json({ message: "Username or email already exists" });
+  }
+
+  const newUser = {
+    id: users.length + 1,
+    username,
+    password, // In a real app, hash this!
+    fullName,
+    email,
+    address,
+  };
+
+  users.push(newUser);
+
+  const token = jwt.sign(
+    { id: newUser.id, username: newUser.username },
+    SECRET_KEY,
+    { expiresIn: "1h" }
+  );
+
+  res.status(201).json({
+    message: "Account created successfully",
+    token,
+    user: {
+      id: newUser.id,
+      username: newUser.username,
+      fullName: newUser.fullName,
+    },
+  });
+};
+
 module.exports = {
   login,
   forgotPassword,
+  signup,
 };
 

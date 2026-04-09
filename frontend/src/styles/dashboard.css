@@ -179,6 +179,36 @@ body {
   color: var(--text-secondary);
 }
 
+.user-dropdown-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0.25rem 0;
+}
+
+.user-dropdown-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 90, 50, 0.08);
+  border: 1px solid rgba(255, 90, 50, 0.2);
+  border-radius: 8px;
+  color: #ff5a32;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.user-dropdown-logout-btn:hover {
+  background: rgba(255, 90, 50, 0.18);
+  border-color: rgba(255, 90, 50, 0.5);
+  transform: translateX(2px);
+}
+
 /* Sidebar */
 .sidebar {
   width: 260px;
