@@ -11,18 +11,24 @@ function Sidebar({ data }) {
 
       // Only log if it's a genuine transition (and avoid initial flood)
       if (prevStatusRef.current && prevStatusRef.current !== data.status) {
-        logStateChange(data.status);
+        logStateChange(data.status, data);
       }
       prevStatusRef.current = data.status;
     }
   }, [data, deliveryState]);
 
-  const logStateChange = async (newState) => {
+  const logStateChange = async (newState, deliveryData) => {
     try {
       await fetch("http://localhost:5000/api/logs/state", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: newState })
+        body: JSON.stringify({ 
+          status: newState,
+          lat: deliveryData.lat,
+          long: deliveryData.long,
+          speed: deliveryData.speed,
+          battery: deliveryData.battery
+        })
       });
     } catch (err) {
       console.error("Failed to log state change:", err);

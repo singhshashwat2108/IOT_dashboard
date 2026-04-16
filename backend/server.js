@@ -16,14 +16,14 @@ app.use("/api/auth", authRoutes)
 
 // state change log route
 app.post("/api/logs/state", (req, res) => {
-  const { status } = req.body;
+  const { status, lat, long, speed, battery } = req.body;
   if (!status) {
     return res.status(400).json({ message: "Status is required" });
   }
 
   db.run(
-    "INSERT INTO state_change_logs (status) VALUES (?)",
-    [status],
+    "INSERT INTO state_change_logs (status, lat, long, speed, battery) VALUES (?, ?, ?, ?, ?)",
+    [status, lat, long, speed, battery],
     function (err) {
       if (err) {
         console.error("Error logging state to DB:", err.message);

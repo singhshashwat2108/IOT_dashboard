@@ -25,6 +25,10 @@ const db = new sqlite3.Database(dbPath, (err) => {
       `CREATE TABLE IF NOT EXISTS state_change_logs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         status TEXT NOT NULL,
+        lat REAL,
+        long REAL,
+        speed REAL,
+        battery REAL,
         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
       )`,
       (err) => {
