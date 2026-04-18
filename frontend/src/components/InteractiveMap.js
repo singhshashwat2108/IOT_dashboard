@@ -22,14 +22,14 @@ const robotIcon = new L.Icon({
 });
 
 function InteractiveMap({ lat, long, mapMode }) {
-  // Use provided lat/long or default to a mock location (e.g. NYC)
-  const robotPosition = [lat || 40.7128, long || -74.0060];
-  const destination = [40.7580, -73.9855]; // Times square mock
+  // Use provided lat/long or default to VIT Vellore
+  const robotPosition = [lat || 12.969, long || 79.155];
+  const destination = [12.973, 79.159]; // Mock delivery destination near VIT
   
   const routeLine = [
     robotPosition,
-    [40.7200, -74.0000],
-    [40.7350, -73.9950],
+    [12.970, 79.156],
+    [12.971, 79.157],
     destination
   ];
 

@@ -86,8 +86,8 @@ async function telemetryReceiver(io) {
           imuZ: (latestData.imuZ !== null ? latestData.imuZ : (Math.random() * 1)).toFixed(2),
           acceleration: (latestData.acceleration !== null ? latestData.acceleration : (Math.random() * 1.5)).toFixed(2),
           battery: (latestData.battery !== null ? latestData.battery : 85).toFixed(0),
-          lat: latestData.lat !== null ? latestData.lat : 40.7128 + (Math.random() / 500),
-          long: latestData.long !== null ? latestData.long : -74.0060 + (Math.random() / 500),
+          lat: latestData.lat !== null ? latestData.lat : 12.969 + (Math.random() / 5000),
+          long: latestData.long !== null ? latestData.long : 79.155 + (Math.random() / 5000),
           status: latestData.status || STATES[stateIndex]
         };
 
@@ -124,8 +124,8 @@ function fallbackSimulation(io) {
       imuZ: (Math.random() * 3).toFixed(2),
       acceleration: (Math.random() * 2).toFixed(2),
       battery: (80 + Math.random() * 20).toFixed(0),
-      lat: 40.7128 + (Math.random() / 500),
-      long: -74.0060 + (Math.random() / 500),
+      lat: 12.969 + (Math.random() / 5000),
+      long: 79.155 + (Math.random() / 5000),
       status: STATES[stateIndex]
     };
     

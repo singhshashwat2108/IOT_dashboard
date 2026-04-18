@@ -93,9 +93,11 @@ function Navigation() {
             </div>
 
             <div className="bottom-metric-card">
-              <div className="bm-title">Signal Strength</div>
-              <div className="bm-value blue">-45 dBm</div>
-              <div className="bm-subtext">Excellent connection</div>
+              <div className="bm-title">Live Coordinates</div>
+              <div className="bm-value blue" style={{fontSize: "1.1rem"}}>
+                {telemetry.lat ? telemetry.lat.toFixed(5) : "12.96900"}, {telemetry.long ? telemetry.long.toFixed(5) : "79.15500"}
+              </div>
+              <div className="bm-subtext">Active Geo-Lock</div>
             </div>
           </div>
         </div>
